@@ -5,15 +5,20 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon test",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "git add . && git commit -m \"deployment\" && git push"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.19.2",
+    "cors": "^2.8.5",
     "express": "^4.17.3",
+    "helmet": "^5.0.2",
+    "morgan": "^1.10.0",
     "nodemailer": "^6.7.3",
-    "nodemon": "^2.0.15"
+    "nodemon": "^2.0.15",
+    "path": "^0.12.7"
   }
 }
