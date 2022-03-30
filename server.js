@@ -34,7 +34,7 @@ app.use(function (req, res, next) {
 
 
   // Website you wish to allow to connect
-  res.setHeader('Access-Control-Allow-Origin', 'https://domgame.herokuapp.com/');
+  res.setHeader('Access-Control-Allow-Origin', '*');
 
   // Request methods you wish to allow
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
@@ -61,7 +61,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 // Routes & controllers
 app.get("/", (req, res) => res.json({ msg: " Welcome to Dragon of midgards  Game Apis" }));
 app.get("/api", (req, res, next) => {
-  res.send({ Origin: req.get("origin") });
+  res.send({ Origin: req.headers.origin });
 });
 
 // app.use("/admin", require("./src/routes/admin"));
