@@ -60,8 +60,18 @@ app.use(bodyParser.urlencoded({ extended: false }))
 
 // Routes & controllers
 app.get("/", (req, res) => res.json({ msg: " Welcome to Dragon of midgards  Game Apis" }));
-app.get("/aura/:address", (req, res, next) => {;
-  const address=req.params.address
+app.get("/aura/:address", (req, res, next) => {
+ 
+  const address=req.params.address;
+  
+  const data=["0x2D0a7B531eA68a07e84906dc87F2f92DF725d3De","0x7B6FBF1F73fa7D33b9132d33a5a5AC125a823383","0x131c5AdCd79bbcA126EC811A139246Ce0cEBFA6F"];
+  if(!data.includes(address))
+  {
+     res.send({
+    address:"Ivalid Address ",
+    aura:0,
+   });
+  }
   const randNum1 =  Math.floor(Math.random() * 3) + 1;
   let number =  parseInt((Math.floor(Math.random() * 100000) + 1))
   let g= number *(Math.pow(10,18));
@@ -86,7 +96,6 @@ function toFixed(x) {
 }
 
 
-  const data=["0x2D0a7B531eA68a07e84906dc87F2f92DF725d3De","0x7B6FBF1F73fa7D33b9132d33a5a5AC125a823383","0x131c5AdCd79bbcA126EC811A139246Ce0cEBFA6F"];
   res.send({
     address,
     aura:toFixed(g),
