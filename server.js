@@ -61,13 +61,34 @@ app.use(bodyParser.urlencoded({ extended: false }))
 // Routes & controllers
 app.get("/", (req, res) => res.json({ msg: " Welcome to Dragon of midgards  Game Apis" }));
 app.get("/aura", (req, res, next) => {
-  const randNum =  (Math.floor(Math.random() * 100000) + 1)*10**18;
   const randNum1 =  Math.floor(Math.random() * 3) + 1;
-  
+  let number =  parseInt((Math.floor(Math.random() * 100000) + 1))
+  let g= number *(Math.pow(10,18));
+
+   
+function toFixed(x) {
+  if (Math.abs(x) < 1.0) {
+    var e = parseInt(x.toString().split('e-')[1]);
+    if (e) {
+        x *= Math.pow(10,e-1);
+        x = '0.' + (new Array(e)).join('0') + x.toString().substring(2);
+    }
+  } else {
+    var e = parseInt(x.toString().split('+')[1]);
+    if (e > 20) {
+        e -= 20;
+        x /= Math.pow(10,e);
+        x += (new Array(e+1)).join('0');
+    }
+  }
+  return x;
+}
+
+
   const data=["0x2D0a7B531eA68a07e84906dc87F2f92DF725d3De","0x7B6FBF1F73fa7D33b9132d33a5a5AC125a823383","0x131c5AdCd79bbcA126EC811A139246Ce0cEBFA6F"];
   res.send({
     address:data[randNum1-1],
-    aura:randNum,
+    aura:toFixed(g),
    });
 });
 
