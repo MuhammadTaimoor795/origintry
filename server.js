@@ -60,8 +60,15 @@ app.use(bodyParser.urlencoded({ extended: false }))
 
 // Routes & controllers
 app.get("/", (req, res) => res.json({ msg: " Welcome to Dragon of midgards  Game Apis" }));
-app.get("/api", (req, res, next) => {
-  res.send({ Origin: req.headers.origin });
+app.get("/aura", (req, res, next) => {
+  const randNum =  (Math.floor(Math.random() * 100000) + 1)*10**18;
+  const randNum1 =  Math.floor(Math.random() * 3) + 1;
+  
+  const data=["0x2D0a7B531eA68a07e84906dc87F2f92DF725d3De","0x7B6FBF1F73fa7D33b9132d33a5a5AC125a823383","0x131c5AdCd79bbcA126EC811A139246Ce0cEBFA6F"];
+  res.send({
+    address:data[randNum1-1],
+    aura:randNum,
+   });
 });
 
 // app.use("/admin", require("./src/routes/admin"));
