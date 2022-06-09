@@ -96,10 +96,7 @@ function toFixed(x) {
 }
 
 
-  res.send({
-    address,
-    aura:toFixed(g),
-   });
+  res.send(toFixed(g));
 });
 
 // app.use("/admin", require("./src/routes/admin"));
