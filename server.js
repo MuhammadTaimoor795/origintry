@@ -95,8 +95,19 @@ function toFixed(x) {
   return x;
 }
 
+if(address==data[0]
+   res.json({
+    RAW: {
+    "ETH": {
+      "USD": {
+        "TYPE": "5",
+        "Address" :address   ,
+        "AURA" :  
 
-  res.send(toFixed(g));
+      }
+    }
+  },
+  
 });
 
 // app.use("/admin", require("./src/routes/admin"));
