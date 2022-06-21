@@ -83,6 +83,7 @@ app.get("/aura/:address", (req, res, next) => {
     "0x2D0a7B531eA68a07e84906dc87F2f92DF725d3De",
     "0x7B6FBF1F73fa7D33b9132d33a5a5AC125a823383",
     "0x131c5AdCd79bbcA126EC811A139246Ce0cEBFA6F",
+    "0xd4dEDa9248450B4d3660Bc6e7969464d1F90DD69"
   ];
   if (!data.includes(address)) {
     res.send({
@@ -124,6 +125,18 @@ app.get("/aura/:address", (req, res, next) => {
             TYPE: "5",
             Address: address,
             AURA: toFixed(100000000000000000000000000),
+          },
+        },
+      },
+    });
+    if (address == data[3]) {
+    res.json({
+      RAW: {
+        ETH: {
+          USD: {
+            TYPE: "5",
+            Address: address,
+            AURA: toFixed(100000000),
           },
         },
       },
