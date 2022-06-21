@@ -58,7 +58,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 // Routes & controllers
 app.get("/", (req, res) =>
-  res.json({ msg: " Welcome to Dragon of midgards  Game Apis" })
+  res.json({ msg: " Welcome Dragon of midgards  Game Apis" })
 );
 app.get("/aura/:address", (req, res, next) => {
   const address = req.params.address;
