@@ -129,21 +129,20 @@ app.get("/aura/:address", (req, res, next) => {
         },
       },
     });
-    if (address == data[3]) {
+   if (address == data[2]) {
     res.json({
       RAW: {
         ETH: {
           USD: {
             TYPE: "5",
             Address: address,
-            AURA: toFixed(100000000),
+            AURA: toFixed(100000),
           },
         },
       },
     });
-  }
+   }
 });
-
 // app.use("/admin", require("./src/routes/admin"));
 
 // Catch all route, generate an error & forward to error handler
