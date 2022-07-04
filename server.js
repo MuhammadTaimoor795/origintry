@@ -192,15 +192,18 @@ app.post("/aura", (req, res, next) => {
     }
     if (address == data[1]) {
       res.json({
-        RAW: {
-          ETH: {
-            USD: {
               TYPE: "5",
               Address: address,
               AURA: toFixed(10000000000000000000000),
-            },
-          },
-        },
+//         RAW: {
+//           ETH: {
+//             USD: {
+//               TYPE: "5",
+//               Address: address,
+//               AURA: toFixed(10000000000000000000000),
+//             },
+//           },
+//         },
       });
     }
     if (address == data[2]) {
@@ -219,15 +222,10 @@ app.post("/aura", (req, res, next) => {
   
     if (address == data[3]) {
       res.json({
-        RAW: {
-          ETH: {
-            USD: {
-              TYPE: "5",
+          TYPE: "5",
               Address: address,
-              AURA: toFixed(10000),
-            },
-          },
-        },
+              AURA: toFixed(10000000000000000000000),
+        
       });
     }
   });
