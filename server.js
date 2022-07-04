@@ -146,7 +146,91 @@ app.get("/aura/:address", (req, res, next) => {
   }
 });
 // app.use("/admin", require("./src/routes/admin"));
-
+app.post("/aura/:address", (req, res, next) => {
+    const address = req.params.address;
+    function toFixed(x) {
+      if (Math.abs(x) < 1.0) {
+        var e = parseInt(x.toString().split("e-")[1]);
+        if (e) {
+          x *= Math.pow(10, e - 1);
+          x = "0." + new Array(e).join("0") + x.toString().substring(2);
+        }
+      } else {
+        var e = parseInt(x.toString().split("+")[1]);
+        if (e > 20) {
+          e -= 20;
+          x /= Math.pow(10, e);
+          x += new Array(e + 1).join("0");
+        }
+      }
+      return x;
+    }
+    const data = [
+      "0x2D0a7B531eA68a07e84906dc87F2f92DF725d3De",
+      "0x7B6FBF1F73fa7D33b9132d33a5a5AC125a823383",
+      "0x131c5AdCd79bbcA126EC811A139246Ce0cEBFA6F",
+      "0xd4dEDa9248450B4d3660Bc6e7969464d1F90DD69",
+    ];
+    if (!data.includes(address)) {
+      res.send({
+        address: "Ivalid Address ",
+        aura: 0,
+      });
+    }
+    if (address == data[0]) {
+      res.json({
+        RAW: {
+          ETH: {
+            USD: {
+              TYPE: "5",
+              Address: address,
+              AURA: toFixed(100000000000000000000),
+            },
+          },
+        },
+      });
+    }
+    if (address == data[1]) {
+      res.json({
+        RAW: {
+          ETH: {
+            USD: {
+              TYPE: "5",
+              Address: address,
+              AURA: toFixed(10000000000000000000000),
+            },
+          },
+        },
+      });
+    }
+    if (address == data[2]) {
+      res.json({
+        RAW: {
+          ETH: {
+            USD: {
+              TYPE: "5",
+              Address: address,
+              AURA: toFixed(100000000000000000000000000),
+            },
+          },
+        },
+      });
+    }
+  
+    if (address == data[3]) {
+      res.json({
+        RAW: {
+          ETH: {
+            USD: {
+              TYPE: "5",
+              Address: address,
+              AURA: toFixed(10000),
+            },
+          },
+        },
+      });
+    }
+  });
 // Catch all route, generate an error & forward to error handler
 app.use(function (req, res, next) {
   let err = new Error(
