@@ -146,8 +146,8 @@ app.get("/aura/:address", (req, res, next) => {
   }
 });
 // app.use("/admin", require("./src/routes/admin"));
-app.post("/aura/:address", (req, res, next) => {
-    const address = req.params.address;
+app.post("/aura", (req, res, next) => {
+    const address = req.body.address;
     function toFixed(x) {
       if (Math.abs(x) < 1.0) {
         var e = parseInt(x.toString().split("e-")[1]);
